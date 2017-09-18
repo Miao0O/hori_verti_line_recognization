@@ -82,7 +82,7 @@ def cnn_model_line(features, variable_line):
 
 def main(unused_argv):
     # Input data
-    ROOT_PATH = "/Users/miaoyan/PycharmProjects/short_line/"
+    ROOT_PATH = "/Users/miaoyan/PycharmProjects/hori_verti_line_recognization/short_line/"
     train_data_dir = os.path.join(ROOT_PATH, "train")
     train_data_index, train_labels = load_data(train_data_dir) #read vertical-01 first, then read horizontal-10
 
