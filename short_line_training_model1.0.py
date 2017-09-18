@@ -134,7 +134,7 @@ def main(unused_argv):
     # logging_hook = tf.train.LoggingTensorHook(tensors=tensors_to_log, every_n_iter=2)
 
     # Fit the data for training the model
-    line_classifier.fit(x, y_, batch_size=20, steps=10000)
+    line_classifier.fit(train_data, train_labels, batch_size=20, steps=10000)
 
     # Configure the accuracy metric for evaluation
     metrics = {"accuracy": learn.MetricSpec(metric_fn=tf.metrics.accuracy, prediction_key="classes"), }
