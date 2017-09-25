@@ -60,6 +60,7 @@ def cnn_model_line(features, labels, mode):
  # Calculate Loss (for both TRAIN and EVAL modes)
     loss = tf.losses.mean_squared_error(labels=labels, predictions=result)
 
+
     if mode == learn.ModeKeys.TRAIN:
         train_op = tf.contrib.layers.optimize_loss(
             loss=loss,
@@ -110,13 +111,15 @@ def main(unused_argv):
 
     # Set up logging for predictions
     # Log the values in the "Softmax" tensor with label "probabilities"
-    # tensors_to_log = {"probabilities": "softmax_tensor"}
+    #tensors_to_log = {"probabilities"}
 
     # Prints the given tensors once every N local steps
-    # logging_hook = tf.train.LoggingTensorHook(tensors=tensors_to_log, every_n_iter=2)
+    #logging_hook = tf.train.LoggingTensorHook(tensors=tensors_to_log, every_n_iter=100)
 
     # Fit the data for training the model
-    line_classifier.fit(x=train_data, y=train_labels , batch_size=20, steps=2000)
+    line_classifier.fit(x=train_data, y=train_labels , batch_size=20, steps=1000)
+
+
 
     # Score Accuracy
     ev=line_classifier.evaluate(x=eval_data, y=eval_labels, steps=1)
@@ -128,7 +131,7 @@ def main(unused_argv):
     for i, p in enumerate(predictions):
         print("Prediction %s: %s" % (i+1, p["probability"]))
         if p["probability"] >=0.5:
-            print ("horizontal")
+            print ("horizontal line")
         else:
             print("vertical line")
 
