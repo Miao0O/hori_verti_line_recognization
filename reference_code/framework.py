@@ -5,7 +5,7 @@ from __future__ import print_function
 
 import numpy as np
 import tensorflow as tf
-from load_data import load_data
+from hori_verti_line_recognization.load_data import load_data
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 from skimage import transform
@@ -15,6 +15,7 @@ from tensorflow.contrib.learn.python.learn.estimators import model_fn as model_f
 
 tf.logging.set_verbosity(tf.logging.INFO)
 
+# This is a very good example of MNIST, we can imitate this function to generate our own CNN model
 
 def cnn_model_fn(features, labels, mode):
   """Model function for CNN."""
