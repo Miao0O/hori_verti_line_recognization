@@ -2,6 +2,11 @@ import os
 import tensorflow as tf
 from PIL import Image
 
+# This is another model for image classification
+# 1.convolution -> 1. ReLu -> 1. Maxpooling ->1. Dropout
+# 2.convolution -> 2. ReLu -> 2. Maxpooling ->2. Dropout
+# 3.convolution -> 3. ReLu -> 3. Maxpooling ->3. Dropout
+# 4.convolution -> 4. ReLu -> 4. Maxpooling ->reshape
 
 IMG_SIZE = 100
 LABEL_CNT = 2

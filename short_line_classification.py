@@ -6,6 +6,7 @@
 # if the result of horizontal is largert than the vertical result, then the image is horizontal line, and vice versa.
 
 import cv2
+import matplotlib.pyplot as plt
 import numpy as np
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
@@ -57,26 +58,23 @@ def main(unused_argv):
     # read 2 images, the one is horizontal line, another is vertical line
     # img1 is horizontal line
     # This folder just include 2 images, a horizontal line image and a vertical line image.
-    img1 = cv2.imread("/Users/miaoyan/PycharmProjects/line_test/10.jpg", cv2.CV_LOAD_IMAGE_GRAYSCALE)
+    img1 = cv2.imread("/Users/miaoyan/Git/hori_verti_line_recognization/short_line/test/1/hor1.jpg", cv2.CV_LOAD_IMAGE_GRAYSCALE)
     img1 = 255 - img1
     img1 = img1.astype('float32')
     img1 = img1 / 255
 
-    # cv2.imshow('horizontal_line', img1)
-    # cv2.waitKey(0)
-    # cv2.destroyAllWindows()
-
     # img2 is vertical line
-    img2 = cv2.imread("/Users/miaoyan/PycharmProjects/line_test/01.jpg", cv2.CV_LOAD_IMAGE_GRAYSCALE)
+    img2 = cv2.imread("/Users/miaoyan/Git/hori_verti_line_recognization/short_line/test/0/ver1.jpg", cv2.CV_LOAD_IMAGE_GRAYSCALE)
     img2 = 255 - img2
     img2 = img2.astype('float32')
     img2 = img2 / 255
 
-    # cv2.imshow('vertical_line', img2)
-    # cv2.waitKey(0)
-    # cv2.destroyAllWindows()
+    test_image = img1
+    cv2.imshow('input_image', test_image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
-    result = sess.run(cnn_model_line(img1)) #input weather img1 or img2
+    result = sess.run(cnn_model_line(test_image)) #input weather img1 or img2
 
     if result ==1:
         print("The input image is a horizontal line")

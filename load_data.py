@@ -22,29 +22,8 @@ def load_data(data_dir):
                       if f.endswith(".jpg")]
         for f in file_names:
             images.append(io.imread(f,as_grey=True))
-
             labels.append(int(d))
-
-
-
     return images, labels
-
-#load training and testing datasets.
-
-# ROOT_PATH = "/Users/miaoyan/PycharmProjects/line"
-# train_data_dir = os.path.join(ROOT_PATH,"Training")
-# test_data_dir = os.path.join(ROOT_PATH,"Testing")
-#
-#
-# images, labels = load_data(train_data_dir)
-#
-#
-#
-#
-# images32 = [transform.resize(image, (32, 32)) for image in images]
-#
-# for image in images[:5]:
-#     print("shape: {0}, min: {1}, max: {2}".format(image.shape, image.min(), image.max()))
 #
 
 

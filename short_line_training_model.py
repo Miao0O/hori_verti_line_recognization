@@ -1,4 +1,5 @@
 import cv2
+import matplotlib.pyplot as plt
 import numpy as np
 import os
 from skimage import transform
@@ -7,9 +8,37 @@ import tensorflow as tf
 from load_data import load_data
 from tensorflow.contrib import learn
 from tensorflow.contrib.learn.python.learn.estimators import model_fn as model_fn_lib
+import visualize_layer
 sess = tf.InteractiveSession()
 
-# 01 is vertical, 01 is horizontal
+# Description:
+# This program is using tensorflow to train the function cnn_model_line in order to classify,
+# if the image is horizontal line or vertical line.
+# The training images and testing images are saved in the short_line folder and loaded by the function load_data
+
+# Algorithm:
+# We use tf.Variable to generate a variable matrix, which has the shape of [3, 3, 1, 1]
+# For using of horizontal kernel, we multiply the h_kernel with the generated variable
+# For using of vertical kernel, we multiply the v_kernel with the generated variable
+# So these 2 filter kernels all have the shape [3, 3, 1, 1]
+
+# Then we use these 2 kinds of filters to convolute the features
+# After that we use the same size of kernel [1, 8, 8, 1] to do pooling of the to convoluted features
+# Due the the size of the feature [-1, 10, 10, 1], after the convolution and pooling we can get the two results which have the size [-1, 1, 1, 1]
+
+# We do squeeze to have a single value for both horizontal result and vertical result
+# Then we can calculate the probability of the horizontal line by using of the equation horizontal result/ (vertical result + horizontal result)
+
+# Because of the feature matrix is preprocessed into the numbers between 0 and 1, the bigger the value, the darker the color
+# So the pixels, which demonstrate the line have more than 0.5 values.
+# After the pooling, for horizontal line, we can get a single value bigger thant 0.5, for vertical line, we can get a single value smaller thant 0.5
+# Labels of the horizontal line are 1, labels of the vertical line are 0
+
+# We calculate the loss, which is mean square error between the result and the labels
+# Then, during each training, we use "SGD" optimization method to reduce the loss
+
+# After the training, we input the testing data to classify the images by using of the pre-trained cnn model
+# For each imported image, we can get the results and print the classification result, weather horizontal line or vertical line
 
 def cnn_model_line(features, labels, mode):
     # Define the 2 kinds of convolutional kernel
@@ -79,7 +108,7 @@ def cnn_model_line(features, labels, mode):
 
 def main(unused_argv):
     # Input data
-    ROOT_PATH = "/Users/miaoyan/PycharmProjects/hori_verti_line_recognization/short_line/"
+    ROOT_PATH = "/Users/miaoyan/Git/hori_verti_line_recognization/short_line/"
     train_data_dir = os.path.join(ROOT_PATH, "train")
     train_data_index, train_labels = load_data(train_data_dir) #read vertical-01 first, then read horizontal-10
 
@@ -107,7 +136,7 @@ def main(unused_argv):
     # Train the model
     # Create the Estimator
     line_classifier = learn.Estimator(model_fn=cnn_model_line,
-        model_dir="/Users/miaoyan/PycharmProjects/hori_verti_line_recognization")
+        model_dir="/Users/miaoyan/PycharmProjects/hori_verti_line_recognization/training_data")
 
     # Set up logging for predictions
     # Log the values in the "Softmax" tensor with label "probabilities"
