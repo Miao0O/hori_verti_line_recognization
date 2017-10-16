@@ -8,7 +8,6 @@ import tensorflow as tf
 from load_data import load_data
 from tensorflow.contrib import learn
 from tensorflow.contrib.learn.python.learn.estimators import model_fn as model_fn_lib
-import visualize_layer
 sess = tf.InteractiveSession()
 
 # Description:

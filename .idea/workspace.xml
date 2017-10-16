@@ -1,37 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/framework.py" description="from load_data import load_data" line="7" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="2814e76d-90e6-43b6-879e-21254c8e3322" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/checkpoint" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/events.out.tfevents.1505773550.MiaodeMacBook-Pro.local" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/events.out.tfevents.1505773571.MiaodeMacBook-Pro.local" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/events.out.tfevents.1505773612.MiaodeMacBook-Pro.local" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/events.out.tfevents.1505773641.MiaodeMacBook-Pro.local" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/events.out.tfevents.1505774883.MiaodeMacBook-Pro.local" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-2000.data-00000-of-00001" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-2000.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-2000.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-2001.data-00000-of-00001" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-2001.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-2001.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-7000.data-00000-of-00001" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-7000.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-7000.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-7001.data-00000-of-00001" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-7001.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-7001.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-8000.data-00000-of-00001" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-8000.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/model.ckpt-8000.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/short_line_training_model1.0.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model_image_classification.py" afterPath="$PROJECT_DIR$/Model_image_classification.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/load_data.py" afterPath="$PROJECT_DIR$/load_data.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/short_line_classification.py" afterPath="$PROJECT_DIR$/short_line_classification.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/training_data/test_caffe.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/short_line_training_model.py" afterPath="$PROJECT_DIR$/short_line_training_model.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/visualize_line.py" afterPath="$PROJECT_DIR$/visualize_line.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,7 +39,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="short_line_training_model.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="short_line_training_model.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/short_line_training_model.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="132">
@@ -81,34 +54,10 @@
       <file leaf-file-name="load_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/load_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+            <state relative-caret-position="45">
+              <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="short_line_classification.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/short_line_classification.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-548">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding>
-                <element signature="e#497#507#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MINIST.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MINIST.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="123" column="46" lean-forward="false" selection-start-line="123" selection-start-column="46" selection-end-line="123" selection-end-column="46" />
-              <folding>
-                <element signature="e#1#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -191,7 +140,7 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -205,8 +154,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -560,7 +509,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14862682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15105008" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -616,13 +565,7 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Model_image_classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="34" lean-forward="false" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Model_image_classification.py" />
     <entry file="file://$PROJECT_DIR$/line_train.tfrecords" />
     <entry file="file://$PROJECT_DIR$/import_images.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -631,13 +574,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model_image_classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="34" lean-forward="false" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Model_image_classification.py" />
     <entry file="file://$PROJECT_DIR$/line_train.tfrecords" />
     <entry file="file://$PROJECT_DIR$/import_images.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -646,13 +583,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model_image_classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="34" lean-forward="false" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Model_image_classification.py" />
     <entry file="file://$PROJECT_DIR$/line_train.tfrecords" />
     <entry file="file://$PROJECT_DIR$/../tensorflow_test/ReadDog.py" />
     <entry file="file://$PROJECT_DIR$/../OpenCV/line_classification_1.py" />
@@ -688,13 +619,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/training_line_classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="58" column="41" lean-forward="false" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/training_line_classification.py" />
     <entry file="file://$USER_HOME$/tensorflow/lib/python2.7/site-packages/tensorflow/python/ops/gen_nn_ops.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
@@ -751,13 +676,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_tensorflow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test_tensorflow.py" />
     <entry file="file://$PROJECT_DIR$/../OpenCV_test/line_classification_version2.0.py" />
     <entry file="file://$USER_HOME$/tensorflow/lib/python2.7/site-packages/tensorflow/python/ops/nn.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -829,13 +748,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/framework.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="89" column="52" lean-forward="false" selection-start-line="89" selection-start-column="10" selection-end-line="89" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/framework.py" />
     <entry file="file://$USER_HOME$/tensorflow/lib/python2.7/site-packages/tensorflow/python/platform/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -860,28 +773,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/short_line_training_model1.0.py" />
-    <entry file="file://$PROJECT_DIR$/MINIST.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="123" column="46" lean-forward="false" selection-start-line="123" selection-start-column="46" selection-end-line="123" selection-end-column="46" />
-          <folding>
-            <element signature="e#1#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model_image_classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="53" lean-forward="false" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MINIST.py" />
+    <entry file="file://$PROJECT_DIR$/Model_image_classification.py" />
     <entry file="file://$PROJECT_DIR$/load_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        <state relative-caret-position="45">
+          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -898,15 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/short_line_classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-548">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#497#507#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/short_line_classification.py" />
   </component>
 </project>
