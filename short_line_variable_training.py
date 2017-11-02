@@ -39,22 +39,13 @@ sess = tf.InteractiveSession()
 # After the training, we input the testing data to classify the images by using of the pre-trained cnn model
 # For each imported image, w can get the results and print the classification result, weather horizontal line or vertical line
 
+
 def cnn_model_line(features, labels, mode):
-    # Define the 2 kinds of convolutional kernel
-    hkernel = np.array((
-        [0, 0, 0],
-        [1, 1, 1],
-        [0, 0, 0]), dtype="float32")
-    vkernel = np.array((
-        [0, 1, 0],
-        [0, 1, 0],
-        [0, 1, 0]), dtype="float32")
-    # create variable for horizontal and vertical filters
-    variable_line = tf.Variable(tf.random_uniform(shape=[3, 3, 1, 1], minval=1, maxval=2, dtype=tf.float32))
+    # variable_line = tf.Variable(tf.random_uniform(shape=[3, 3, 1, 1], minval=1, maxval=2, dtype=tf.float32))
     # sess.run(variable_line.initializer)
     # instead of fixed filter, we user variable filter
-    filter_hor =  tf.reshape(hkernel, [3,3,1,1]) * variable_line
-    filter_ver = tf.reshape(vkernel, [3,3,1,1]) * variable_line
+    filter_hor = tf.Variable(tf.random_uniform(shape=[3, 3, 1, 1], minval=1, maxval=2, dtype=tf.float32))
+    filter_ver = tf.Variable(tf.random_uniform(shape=[3, 3, 1, 1], minval=1, maxval=2, dtype=tf.float32))
     # print(sess.run(filter_hor))
     # print(sess.run(filter_ver))
     input_layer = tf.reshape(features, [-1, 10, 10, 1])
@@ -63,6 +54,7 @@ def cnn_model_line(features, labels, mode):
         filter= filter_hor,
         strides=[1, 1, 1, 1],
         padding='VALID')  # horizontal kernel
+
     # print(conv_hkernel)
     pool_hkernel = tf.nn.max_pool(tf.to_float(conv_hkernel, name='ToFloat'), ksize=[1, 8, 8, 1],
                                   strides=[1, 1, 1, 1], padding='VALID')
@@ -84,6 +76,7 @@ def cnn_model_line(features, labels, mode):
     # Define loss and optimizer
     loss = None
     train_op =  None
+    init_op = None
 
  # Calculate Loss (for both TRAIN and EVAL modes)
     loss = tf.losses.mean_squared_error(labels=labels, predictions=result)
@@ -133,6 +126,8 @@ def main(unused_argv):
     # y_ = tf.reshape(train_labels, [-1]) # 01 is vertical line, 10 is horizontal line
 
     # Train the model
+
+
     # Create the Estimator
     line_classifier = learn.Estimator(model_fn=cnn_model_line,
         model_dir="/Users/miaoyan/PycharmProjects/hori_verti_line_recognization/training_data")
@@ -146,8 +141,6 @@ def main(unused_argv):
 
     # Fit the data for training the model
     line_classifier.fit(x=train_data, y=train_labels , batch_size=20, steps=1000)
-
-
 
     # Score Accuracy
     ev=line_classifier.evaluate(x=eval_data, y=eval_labels, steps=1)
