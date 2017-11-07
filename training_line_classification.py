@@ -12,7 +12,7 @@ sess = tf.InteractiveSession()
 
 def weight_variable(shape):
     """weight variable generates a weight variable of a given shape"""
-    initial = tf.random_uniform(shape, minval=1, maxval=2, dtype=tf.float32)
+    initial = tf.random_uniform(shape, minval=0, maxval=1, dtype=tf.float32)
     return tf.Variable(initial)
 
 def classify_model(x):
@@ -35,7 +35,7 @@ def classify_model(x):
     # convolution with horizontal weight
     conv_hkernel = tf.nn.conv2d(
         input=x_image,
-        filter= w_hor,
+        filter=w_hor,
         strides=[1, 1, 1, 1],
         padding='VALID')  # horizontal kernel
 
@@ -57,15 +57,14 @@ def classify_model(x):
     return y_result, w_hor, w_ver
 
 def main(unused_argv):
-    # load training data
-    ROOT_PATH = "/Users/miaoyan/Dropbox/Git/hori_verti_line_recognization/short_line/"
+    ROOT_PATH =  "/Users/miaoyan/Dropbox/Git/hori_verti_line_recognization/short_line/"  # load training data
     train_data_dir = os.path.join(ROOT_PATH, "train")
     train_data_index, train_labels = load_data(train_data_dir) #read vertical-01 first, then read horizontal-10
     # pre-process training data
     train_data = np.asarray(train_data_index)
     train_data = 1 - train_data
     train_data = train_data.astype('float32')
-    train_labels = np.asarray(train_labels, dtype=np.int32)  #01-vertical 10-horizontal
+    train_labels = np.asarray(train_labels, dtype=np.int32)  # 01-vertical 10-horizontal
 
     # load test data
     test_data_dir = os.path.join(ROOT_PATH, "test")
@@ -91,26 +90,47 @@ def main(unused_argv):
     # Define training
     train_step = tf.train.GradientDescentOptimizer(0.001).minimize(loss) # 1e-3 is learning rate
 
-    # # calculate accuracy
-    correct_prediction = tf.equal(y_result, y_label)
+    #calculate accuracy
+    # if y_result > 0.5, the image is classified as horizontal line, if y_result < 0.5, the image is classified as vertical line
+    estimate_constant = tf.constant(0.5, dtype=tf.float32)
+    correct_prediction = tf.equal(tf.cast(tf.cast(tf.add(y_result, estimate_constant), tf.int32), tf.float32), y_label)
     correct_prediction = tf.cast(correct_prediction, tf.float32)
     accuracy = tf.reduce_mean(correct_prediction)
 
     # run graph by using session
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
+        horizontal_kernel = np.squeeze(w_hor.eval())  # squeeze to one 2 dimensional matrix
+        vertical_kernel = np.squeeze(w_ver.eval())  # squeeze to one 2 dimensional matrix
+        plt.title('initial horizontal kernel')
+        plt.imshow(horizontal_kernel, cmap='gray')
+        plt.show()
+        plt.title('initial vertical kernel')
+        plt.imshow(vertical_kernel, cmap='gray')
+        plt.show()
         for i in range (20000):
-            # if i% 100 == 0:
+            train_step.run(feed_dict={x: train_data, y_label: train_labels})
+            if i% 100 == 0:
                 train_accuracy = accuracy.eval(feed_dict = {x: train_data, y_label: train_labels})
                 print('step %d, training accuracy %g' % (i, train_accuracy))
-                train_step.run(feed_dict= {x: train_data, y_label: train_labels})
                 # print('result:')
                 # print y_result.eval()
                 print('horizontal kernel:')
-                print w_hor.eval()
+                print (w_hor.eval())
                 print('vertical kernel:')
-                print w_ver.eval()
+                print (w_ver.eval())
 
+            if i == 19999:
+                horizontal_kernel = np.squeeze(w_hor.eval()) # squeeze to one 2 dimensional matrix
+                vertical_kernel = np.squeeze(w_ver.eval()) # squeeze to one 2 dimensional matrix
+                plt.title('trained horizontal kernel')
+                plt.imshow(horizontal_kernel, cmap='gray')
+                plt.show()
+                plt.title('trained vertical kernel')
+                plt.imshow(vertical_kernel, cmap='gray')
+                plt.show()
+
+        #print the accuracy
         print ('test accuracy %g' % accuracy.eval(feed_dict= {x: eval_data, y_label: eval_labels}))
 
 

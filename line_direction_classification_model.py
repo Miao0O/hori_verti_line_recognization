@@ -11,8 +11,7 @@ from tensorflow.contrib.learn.python.learn.estimators import model_fn as model_f
 sess = tf.InteractiveSession()
 
 # Description:
-# This program is using tensorflow to train the function cnn_model_line in order to classify,
-# if the image is horizontal line or vertical line.
+# This program is using tensorflow to train the function cnn_model_line in order to classify the line direction in the image
 # The training images and testing images are saved in the short_line folder and loaded by the function load_data
 
 # Algorithm:
