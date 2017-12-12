@@ -24,18 +24,31 @@ plt.title('Inverted Color')
 plt.show()
 
 # Define horizontal and vertical kernel for horizontal and vertical filter
-# hkernel = np.array(([0, 0, 0],
-#                     [1, 1, 1],
-#                     [0, 0, 0]), dtype="float32")
-# vkernel = np.array((
-#         [0, 1, 0],
-#         [0, 1, 0],
-#         [0, 1, 0]), dtype="float32")
-filter_hor = tf.Variable(tf.random_uniform(shape=[3, 3, 1, 1], minval=1, maxval=2, dtype=tf.float32))
-filter_ver = tf.Variable(tf.random_uniform(shape=[3, 3, 1, 1], minval=1, maxval=2, dtype=tf.float32))
+hkernel = np.array(([0, 0, 0],
+                    [1, 1, 1],
+                    [0, 0, 0]), dtype="float32")
+vkernel = np.array((
+        [0, 1, 0],
+        [0, 1, 0],
+        [0, 1, 0]), dtype="float32")
+plt.imshow(hkernel)
+plt.title('optimal horizontal kernel')
+plt.show()
+plt.imshow(vkernel)
+plt.title('optimal vertical kernel')
+plt.show()
+
+filter_hor = tf.Variable(tf.random_uniform(shape=[3, 3, 1, 1], minval=0, maxval=1, dtype=tf.float32))
+filter_ver = tf.Variable(tf.random_uniform(shape=[3, 3, 1, 1], minval=0, maxval=1, dtype=tf.float32))
 sess.run(tf.global_variables_initializer())
 print filter_hor.eval(sess) #use eval to print tensor with a numpy type
 print filter_ver.eval(sess) #use eval to print tensor with a numpy type
+visualize_layer(filter_hor, [3, 3, 1, 1])
+plt.title('horizontal filter kernel')
+plt.show()
+visualize_layer(filter_ver, [3, 3, 1, 1])
+plt.title('vertical filter kernel')
+plt.show()
 
 # Use tensorflow to do the convolution
 #   - horizontal kernel
