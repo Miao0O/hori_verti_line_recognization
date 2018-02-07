@@ -11,7 +11,7 @@ def visualize_layer(tensor, shape):
     plt.imshow(np.squeeze(reshape_image), cmap='gray')
 
 # read the images into Greyscale image, so the channel of the image is 1
-img = cv2.imread("/Users/miaoyan/Dropbox/Git/hori_verti_line_recognization/short_line/test/1/hor1.jpg", cv2.IMREAD_GRAYSCALE)
+img = cv2.imread("/Users/miaoyan/Documents/My Master Thesis Code/hori_verti_line_recognization/short_line/test/1/hor1.jpg", cv2.IMREAD_GRAYSCALE)
 plt.imshow(img, cmap='gray')
 plt.title('Original Greyscale Image')
 plt.show()
@@ -31,18 +31,21 @@ vkernel = np.array((
         [0, 1, 0],
         [0, 1, 0],
         [0, 1, 0]), dtype="float32")
-plt.imshow(hkernel)
+plt.imshow(hkernel, cmap='gray')
 plt.title('optimal horizontal kernel')
 plt.show()
-plt.imshow(vkernel)
+plt.imshow(vkernel, cmap='gray')
 plt.title('optimal vertical kernel')
 plt.show()
 
-filter_hor = tf.Variable(tf.random_uniform(shape=[3, 3, 1, 1], minval=0, maxval=1, dtype=tf.float32))
-filter_ver = tf.Variable(tf.random_uniform(shape=[3, 3, 1, 1], minval=0, maxval=1, dtype=tf.float32))
-sess.run(tf.global_variables_initializer())
-print filter_hor.eval(sess) #use eval to print tensor with a numpy type
-print filter_ver.eval(sess) #use eval to print tensor with a numpy type
+# filter_hor = tf.Variable(tf.random_uniform(shape=[3, 3, 1, 1], minval=0, maxval=1, dtype=tf.float32))
+# filter_ver = tf.Variable(tf.random_uniform(shape=[3, 3, 1, 1], minval=0, maxval=1, dtype=tf.float32))
+# sess.run(tf.global_variables_initializer())
+# print filter_hor.eval(sess) #use eval to print tensor with a numpy type
+# print filter_ver.eval(sess) #use eval to print tensor with a numpy type
+filter_hor = tf.reshape(hkernel, [3, 3, 1, 1])
+filter_ver = tf.reshape(vkernel, [3, 3, 1, 1])
+
 visualize_layer(filter_hor, [3, 3, 1, 1])
 plt.title('horizontal filter kernel')
 plt.show()

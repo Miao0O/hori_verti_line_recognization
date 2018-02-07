@@ -59,12 +59,12 @@ def classify_model(x):
 def main(unused_argv):
     ROOT_PATH =  "/Users/miaoyan/Dropbox/Git/hori_verti_line_recognization/short_line/"  # load training data
     train_data_dir = os.path.join(ROOT_PATH, "train")
-    train_data_index, train_labels = load_data(train_data_dir) #read vertical-01 first, then read horizontal-10
+    train_data_index, train_labels = load_data(train_data_dir) #read vertical-0 first, then read horizontal-1
     # pre-process training data
     train_data = np.asarray(train_data_index)
     train_data = 1 - train_data
     train_data = train_data.astype('float32')
-    train_labels = np.asarray(train_labels, dtype=np.int32)  # 01-vertical 10-horizontal
+    train_labels = np.asarray(train_labels, dtype=np.int32)  # 0-vertical 1-horizontal
 
     # load test data
     test_data_dir = os.path.join(ROOT_PATH, "test")
